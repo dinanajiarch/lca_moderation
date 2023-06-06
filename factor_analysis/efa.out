@@ -1,0 +1,739 @@
+Mplus VERSION 7.4
+MUTHEN & MUTHEN
+02/23/2022   9:26 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  Interest in Science and Environmental Issues;
+  DATA:
+  FILE = "new.dat";
+
+  VARIABLE:
+  NAMES = caseid cohort FEMALE URM MOTHED ISCIIRT KSCIIRT KA47A KA47H KA47I KA47K
+       KA47L KA9B KA9C KA9D KA9G KA9K KB9H;
+   MISSING=.;
+   usevar =  KA9B-KB9H;
+  ANALYSIS:
+  type = efa 1 3;
+    estimator = MLR;
+    parallel=50;
+  OUTPUT:
+  sampstat
+
+
+
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  2447
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+Interest in Science and Environmental Issues;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        3498
+
+Number of dependent variables                                    6
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Continuous
+   KA9B        KA9C        KA9D        KA9G        KA9K        KB9H
+
+
+Estimator                                                      MLR
+Rotation                                                    GEOMIN
+Row standardization                                    CORRELATION
+Type of rotation                                           OBLIQUE
+Epsilon value                                               Varies
+Information matrix                                        OBSERVED
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization Specifications for the Exploratory Factor Analysis
+Rotation Algorithm
+  Number of random starts                                       30
+  Maximum number of iterations                               10000
+  Derivative convergence criterion                       0.100D-04
+
+Input data file(s)
+  new.dat
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            28
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              KA9B          KA9C          KA9D          KA9G          KA9K
+              ________      ________      ________      ________      ________
+ KA9B           0.997
+ KA9C           0.992         0.993
+ KA9D           0.991         0.987         0.992
+ KA9G           0.992         0.989         0.988         0.994
+ KA9K           0.991         0.989         0.987         0.990         0.994
+ KB9H           0.461         0.459         0.459         0.461         0.459
+
+
+           Covariance Coverage
+              KB9H
+              ________
+ KB9H           0.462
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              KA9B          KA9C          KA9D          KA9G          KA9K
+              ________      ________      ________      ________      ________
+      1         1.855         1.603         1.964         2.026         1.768
+
+
+           Means
+              KB9H
+              ________
+      1         2.135
+
+
+           Covariances
+              KA9B          KA9C          KA9D          KA9G          KA9K
+              ________      ________      ________      ________      ________
+ KA9B           0.461
+ KA9C           0.110         0.409
+ KA9D           0.284         0.117         0.481
+ KA9G           0.255         0.097         0.331         0.468
+ KA9K           0.197         0.162         0.211         0.214         0.440
+ KB9H           0.186         0.129         0.211         0.226         0.244
+
+
+           Covariances
+              KB9H
+              ________
+ KB9H           0.499
+
+
+           Correlations
+              KA9B          KA9C          KA9D          KA9G          KA9K
+              ________      ________      ________      ________      ________
+ KA9B           1.000
+ KA9C           0.252         1.000
+ KA9D           0.604         0.263         1.000
+ KA9G           0.548         0.221         0.698         1.000
+ KA9K           0.437         0.382         0.459         0.473         1.000
+ KB9H           0.388         0.285         0.429         0.467         0.521
+
+
+           Correlations
+              KB9H
+              ________
+ KB9H           1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -16233.633
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     KA9B                  1.855       0.186       1.000   31.32%       1.000      2.000      2.000
+            3487.000       0.461      -0.847       3.000   16.86%       2.000      2.000
+     KA9C                  1.603       0.585       1.000   48.22%       1.000      1.000      2.000
+            3474.000       0.409      -0.624       3.000    8.49%       2.000      2.000
+     KA9D                  1.963       0.050       1.000   25.99%       1.000      2.000      2.000
+            3470.000       0.481      -0.923       3.000   22.28%       2.000      3.000
+     KA9G                  2.026      -0.033       1.000   22.09%       1.000      2.000      2.000
+            3476.000       0.468      -0.862       3.000   24.74%       2.000      3.000
+     KA9K                  1.767       0.298       1.000   36.33%       1.000      2.000      2.000
+            3476.000       0.440      -0.782       3.000   13.06%       2.000      2.000
+     KB9H                  2.137      -0.196       1.000   18.64%       2.000      2.000      2.000
+            1615.000       0.491      -0.963       3.000   32.32%       2.000      3.000
+
+
+SUMMARY OF MODEL FIT INFORMATION
+
+
+                   Number of                   Degrees of
+     Model        Parameters      Chi-Square    Freedom     P-Value
+
+     1-factor          18            339.224         9       0.0000
+     2-factor          23             23.950         4       0.0001
+     3-factor          27              0.000         0       0.0000
+
+                                               Degrees of
+     Models Compared              Chi-Square    Freedom     P-Value
+
+     1-factor against 2-factor       310.666         5       0.0000
+     2-factor against 3-factor        23.950         4       0.0001
+
+
+
+RESULTS FOR EXPLORATORY FACTOR ANALYSIS
+
+
+           EIGENVALUES FOR SAMPLE CORRELATION MATRIX
+                  1             2             3             4             5
+              ________      ________      ________      ________      ________
+      1         3.196         0.919         0.669         0.473         0.451
+
+
+           EIGENVALUES FOR SAMPLE CORRELATION MATRIX
+                  6
+              ________
+      1         0.292
+
+
+           AVERAGE EIGENVALUES FROM PARALLEL ANALYSIS
+                  1             2             3             4             5
+              ________      ________      ________      ________      ________
+      1         1.067         1.033         1.010         0.991         0.966
+
+
+           AVERAGE EIGENVALUES FROM PARALLEL ANALYSIS
+                  6
+              ________
+      1         0.933
+
+
+           95 PERCENTILE EIGENVALUES FROM PARALLEL ANALYSIS
+                  1             2             3             4             5
+              ________      ________      ________      ________      ________
+      1         1.100         1.050         1.022         1.002         0.986
+
+
+           95 PERCENTILE EIGENVALUES FROM PARALLEL ANALYSIS
+                  6
+              ________
+      1         0.955
+
+
+EXPLORATORY FACTOR ANALYSIS WITH 1 FACTOR(S):
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       18
+
+Loglikelihood
+
+          H0 Value                      -16453.899
+          H0 Scaling Correction Factor      1.0406
+            for MLR
+          H1 Value                      -16233.633
+          H1 Scaling Correction Factor      1.1266
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   32943.799
+          Bayesian (BIC)                 33054.678
+          Sample-Size Adjusted BIC       32997.483
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                            339.224*
+          Degrees of Freedom                     9
+          P-Value                           0.0000
+          Scaling Correction Factor         1.2987
+            for MLR
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.102
+          90 Percent C.I.                    0.093  0.112
+          Probability RMSEA <= .05           0.000
+
+CFI/TLI
+
+          CFI                                0.928
+          TLI                                0.881
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           4630.912
+          Degrees of Freedom                    15
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.054
+
+
+
+MINIMUM ROTATION FUNCTION VALUE       2.66033
+
+
+
+           GEOMIN ROTATED LOADINGS (* significant at 5% level)
+                  1
+              ________
+ KA9B           0.705*
+ KA9C           0.347*
+ KA9D           0.836*
+ KA9G           0.806*
+ KA9K           0.603*
+ KB9H           0.575*
+
+
+           GEOMIN FACTOR CORRELATIONS (* significant at 5% level)
+                  1
+              ________
+      1         1.000
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              KA9B          KA9C          KA9D          KA9G          KA9K
+              ________      ________      ________      ________      ________
+      1         0.503         0.880         0.302         0.350         0.636
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              KB9H
+              ________
+      1         0.669
+
+
+           S.E. GEOMIN ROTATED LOADINGS
+                  1
+              ________
+ KA9B           0.012
+ KA9C           0.018
+ KA9D           0.009
+ KA9G           0.010
+ KA9K           0.015
+ KB9H           0.021
+
+
+           S.E. GEOMIN FACTOR CORRELATIONS
+                  1
+              ________
+      1         0.000
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              KA9B          KA9C          KA9D          KA9G          KA9K
+              ________      ________      ________      ________      ________
+      1         0.017         0.012         0.015         0.016         0.018
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              KB9H
+              ________
+      1         0.025
+
+
+           Est./S.E. GEOMIN ROTATED LOADINGS
+                  1
+              ________
+ KA9B          57.946
+ KA9C          19.548
+ KA9D          90.154
+ KA9G          79.590
+ KA9K          40.685
+ KB9H          26.759
+
+
+           Est./S.E. GEOMIN FACTOR CORRELATIONS
+                  1
+              ________
+      1         0.000
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              KA9B          KA9C          KA9D          KA9G          KA9K
+              ________      ________      ________      ________      ________
+      1        29.362        71.399        19.490        21.444        35.549
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              KB9H
+              ________
+      1        27.076
+
+
+EXPLORATORY FACTOR ANALYSIS WITH 2 FACTOR(S):
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       23
+
+Loglikelihood
+
+          H0 Value                      -16248.865
+          H0 Scaling Correction Factor      1.1014
+            for MLR
+          H1 Value                      -16233.633
+          H1 Scaling Correction Factor      1.1266
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   32543.730
+          Bayesian (BIC)                 32685.408
+          Sample-Size Adjusted BIC       32612.326
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                             23.950*
+          Degrees of Freedom                     4
+          P-Value                           0.0001
+          Scaling Correction Factor         1.2720
+            for MLR
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.038
+          90 Percent C.I.                    0.024  0.053
+          Probability RMSEA <= .05           0.903
+
+CFI/TLI
+
+          CFI                                0.996
+          TLI                                0.984
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           4630.912
+          Degrees of Freedom                    15
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.010
+
+
+
+MINIMUM ROTATION FUNCTION VALUE       0.28603
+
+
+
+           GEOMIN ROTATED LOADINGS (* significant at 5% level)
+                  1             2
+              ________      ________
+ KA9B           0.594*        0.142*
+ KA9C           0.002         0.452*
+ KA9D           0.898*       -0.027
+ KA9G           0.737*        0.089
+ KA9K          -0.002         0.841*
+ KB9H           0.193*        0.500*
+
+
+           GEOMIN FACTOR CORRELATIONS (* significant at 5% level)
+                  1             2
+              ________      ________
+      1         1.000
+      2         0.641*        1.000
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              KA9B          KA9C          KA9D          KA9G          KA9K
+              ________      ________      ________      ________      ________
+      1         0.518         0.795         0.224         0.365         0.295
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              KB9H
+              ________
+      1         0.589
+
+
+           S.E. GEOMIN ROTATED LOADINGS
+                  1             2
+              ________      ________
+ KA9B           0.040         0.049
+ KA9C           0.042         0.044
+ KA9D           0.012         0.029
+ KA9G           0.045         0.055
+ KA9K           0.011         0.037
+ KB9H           0.056         0.060
+
+
+           S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2
+              ________      ________
+      1         0.000
+      2         0.034         0.000
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              KA9B          KA9C          KA9D          KA9G          KA9K
+              ________      ________      ________      ________      ________
+      1         0.017         0.020         0.023         0.019         0.054
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              KB9H
+              ________
+      1         0.029
+
+
+           Est./S.E. GEOMIN ROTATED LOADINGS
+                  1             2
+              ________      ________
+ KA9B          14.977         2.898
+ KA9C           0.060        10.241
+ KA9D          74.164        -0.904
+ KA9G          16.370         1.605
+ KA9K          -0.193        22.515
+ KB9H           3.434         8.320
+
+
+           Est./S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2
+              ________      ________
+      1         0.000
+      2        18.988         0.000
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              KA9B          KA9C          KA9D          KA9G          KA9K
+              ________      ________      ________      ________      ________
+      1        30.394        39.332         9.553        18.954         5.497
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              KB9H
+              ________
+      1        19.971
+
+
+           FACTOR STRUCTURE
+                  1             2
+              ________      ________
+ KA9B           0.685         0.523
+ KA9C           0.292         0.453
+ KA9D           0.881         0.549
+ KA9G           0.794         0.561
+ KA9K           0.537         0.840
+ KB9H           0.513         0.624
+
+
+EXPLORATORY FACTOR ANALYSIS WITH 3 FACTOR(S):
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       27
+
+Loglikelihood
+
+          H0 Value                      -16233.633
+          H0 Scaling Correction Factor      1.1272
+            for MLR
+          H1 Value                      -16233.633
+          H1 Scaling Correction Factor      1.1272
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   32521.265
+          Bayesian (BIC)                 32687.584
+          Sample-Size Adjusted BIC       32601.792
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                              0.000*
+          Degrees of Freedom                     0
+          P-Value                           0.0000
+          Scaling Correction Factor         1.0000
+            for MLR
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.000
+
+CFI/TLI
+
+          CFI                                1.000
+          TLI                                1.000
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           4630.912
+          Degrees of Freedom                    15
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.000
+
+
+
+MINIMUM ROTATION FUNCTION VALUE       0.13193
+
+
+
+           GEOMIN ROTATED LOADINGS (* significant at 5% level)
+                  1             2             3
+              ________      ________      ________
+ KA9B           0.554*        0.185*       -0.003
+ KA9C           0.006         0.567*       -0.183
+ KA9D           0.888*       -0.007         0.006
+ KA9G           0.539         0.003         0.436
+ KA9K          -0.085         0.866*        0.004
+ KB9H           0.015         0.553*        0.151
+
+
+           GEOMIN FACTOR CORRELATIONS (* significant at 5% level)
+                  1             2             3
+              ________      ________      ________
+      1         1.000
+      2         0.697*        1.000
+      3         0.562*        0.554*        1.000
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              KA9B          KA9C          KA9D          KA9G          KA9K
+              ________      ________      ________      ________      ________
+      1         0.518         0.756         0.214         0.252         0.342
+
+
+           ESTIMATED RESIDUAL VARIANCES
+              KB9H
+              ________
+      1         0.564
+
+
+           S.E. GEOMIN ROTATED LOADINGS
+                  1             2             3
+              ________      ________      ________
+ KA9B           0.093         0.048         0.066
+ KA9C           0.017         0.222         0.270
+ KA9D           0.123         0.024         0.117
+ KA9G           0.424         0.006         0.625
+ KA9K           0.160         0.169         0.014
+ KB9H           0.009         0.092         0.183
+
+
+           S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2             3
+              ________      ________      ________
+      1         0.000
+      2         0.051         0.000
+      3         0.208         0.165         0.000
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              KA9B          KA9C          KA9D          KA9G          KA9K
+              ________      ________      ________      ________      ________
+      1         0.038         0.100         0.088         0.336         0.103
+
+
+           S.E. ESTIMATED RESIDUAL VARIANCES
+              KB9H
+              ________
+      1         0.083
+
+
+           Est./S.E. GEOMIN ROTATED LOADINGS
+                  1             2             3
+              ________      ________      ________
+ KA9B           5.988         3.897        -0.052
+ KA9C           0.352         2.553        -0.676
+ KA9D           7.192        -0.308         0.053
+ KA9G           1.272         0.451         0.698
+ KA9K          -0.534         5.139         0.253
+ KB9H           1.762         5.992         0.826
+
+
+           Est./S.E. GEOMIN FACTOR CORRELATIONS
+                  1             2             3
+              ________      ________      ________
+      1         0.000
+      2        13.765         0.000
+      3         2.697         3.367         0.000
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              KA9B          KA9C          KA9D          KA9G          KA9K
+              ________      ________      ________      ________      ________
+      1        13.673         7.525         2.430         0.750         3.328
+
+
+           Est./S.E. ESTIMATED RESIDUAL VARIANCES
+              KB9H
+              ________
+      1         6.774
+
+
+           FACTOR STRUCTURE
+                  1             2             3
+              ________      ________      ________
+ KA9B           0.682         0.570         0.411
+ KA9C           0.299         0.470         0.135
+ KA9D           0.886         0.615         0.501
+ KA9G           0.786         0.620         0.740
+ KA9K           0.521         0.809         0.436
+ KB9H           0.486         0.648         0.466
+
+
+DIAGRAM INFORMATION
+
+  Mplus diagrams are currently not available for EFA.
+  No diagram output was produced.
+
+
+     Beginning Time:  09:26:40
+        Ending Time:  09:26:44
+       Elapsed Time:  00:00:04
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2015 Muthen & Muthen

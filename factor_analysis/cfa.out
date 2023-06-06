@@ -1,0 +1,353 @@
+Mplus VERSION 7.4
+MUTHEN & MUTHEN
+02/23/2022   9:37 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  Interest in Science and Environmental Issues;
+  DATA:
+  FILE = "new.dat";
+
+  VARIABLE:
+  NAMES = caseid cohort FEMALE URM MOTHED ISCIIRT KSCIIRT KA47A KA47H KA47I KA47K
+       KA47L KA9B KA9C KA9D KA9G KA9K KB9H;
+   MISSING=.;
+   usevar =  KA9B KA9D KA9G KA9K;
+  ANALYSIS:
+  estimator = MLR;
+  MODEL:
+  f by KA9B KA9D KA9G KA9K;
+  OUTPUT:
+  sampstat standardized
+
+
+
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  2448
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+Interest in Science and Environmental Issues;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        3497
+
+Number of dependent variables                                    4
+Number of independent variables                                  0
+Number of continuous latent variables                            1
+
+Observed dependent variables
+
+  Continuous
+   KA9B        KA9D        KA9G        KA9K
+
+Continuous latent variables
+   F
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+
+Input data file(s)
+  new.dat
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            13
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              KA9B          KA9D          KA9G          KA9K
+              ________      ________      ________      ________
+ KA9B           0.997
+ KA9D           0.991         0.992
+ KA9G           0.992         0.988         0.994
+ KA9K           0.992         0.987         0.990         0.994
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              KA9B          KA9D          KA9G          KA9K
+              ________      ________      ________      ________
+      1         1.855         1.964         2.026         1.767
+
+
+           Covariances
+              KA9B          KA9D          KA9G          KA9K
+              ________      ________      ________      ________
+ KA9B           0.461
+ KA9D           0.284         0.481
+ KA9G           0.254         0.331         0.468
+ KA9K           0.197         0.211         0.214         0.440
+
+
+           Correlations
+              KA9B          KA9D          KA9G          KA9K
+              ________      ________      ________      ________
+ KA9B           1.000
+ KA9D           0.604         1.000
+ KA9G           0.548         0.698         1.000
+ KA9K           0.438         0.459         0.472         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -11770.613
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     KA9B                  1.855       0.186       1.000   31.32%       1.000      2.000      2.000
+            3487.000       0.461      -0.847       3.000   16.86%       2.000      2.000
+     KA9D                  1.963       0.050       1.000   25.99%       1.000      2.000      2.000
+            3470.000       0.481      -0.923       3.000   22.28%       2.000      3.000
+     KA9G                  2.026      -0.033       1.000   22.09%       1.000      2.000      2.000
+            3476.000       0.468      -0.862       3.000   24.74%       2.000      3.000
+     KA9K                  1.767       0.298       1.000   36.33%       1.000      2.000      2.000
+            3476.000       0.440      -0.782       3.000   13.06%       2.000      2.000
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       12
+
+Loglikelihood
+
+          H0 Value                      -11791.457
+          H0 Scaling Correction Factor      1.0968
+            for MLR
+          H1 Value                      -11770.613
+          H1 Scaling Correction Factor      1.1379
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   23606.914
+          Bayesian (BIC)                 23680.830
+          Sample-Size Adjusted BIC       23642.700
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                             30.112*
+          Degrees of Freedom                     2
+          P-Value                           0.0000
+          Scaling Correction Factor         1.3844
+            for MLR
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.063
+          90 Percent C.I.                    0.045  0.084
+          Probability RMSEA <= .05           0.115
+
+CFI/TLI
+
+          CFI                                0.991
+          TLI                                0.974
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           3234.481
+          Degrees of Freedom                     6
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.014
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ F        BY
+    KA9B               1.000      0.000    999.000    999.000
+    KA9D               1.242      0.029     43.509      0.000
+    KA9G               1.164      0.030     39.002      0.000
+    KA9K               0.792      0.025     31.423      0.000
+
+ Intercepts
+    KA9B               1.855      0.011    161.435      0.000
+    KA9D               1.964      0.012    167.046      0.000
+    KA9G               2.026      0.012    174.842      0.000
+    KA9K               1.767      0.011    157.198      0.000
+
+ Variances
+    F                  0.227      0.010     22.980      0.000
+
+ Residual Variances
+    KA9B               0.234      0.008     28.089      0.000
+    KA9D               0.131      0.008     17.191      0.000
+    KA9G               0.160      0.008     20.239      0.000
+    KA9K               0.298      0.009     33.928      0.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ F        BY
+    KA9B               0.702      0.013     55.809      0.000
+    KA9D               0.853      0.009     91.791      0.000
+    KA9G               0.811      0.011     77.163      0.000
+    KA9K               0.569      0.015     37.636      0.000
+
+ Intercepts
+    KA9B               2.732      0.028     99.298      0.000
+    KA9D               2.830      0.029     96.130      0.000
+    KA9G               2.962      0.032     92.192      0.000
+    KA9K               2.664      0.026    102.124      0.000
+
+ Variances
+    F                  1.000      0.000    999.000    999.000
+
+ Residual Variances
+    KA9B               0.508      0.018     28.778      0.000
+    KA9D               0.272      0.016     17.181      0.000
+    KA9G               0.343      0.017     20.146      0.000
+    KA9K               0.677      0.017     39.369      0.000
+
+
+STDY Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ F        BY
+    KA9B               0.702      0.013     55.809      0.000
+    KA9D               0.853      0.009     91.791      0.000
+    KA9G               0.811      0.011     77.163      0.000
+    KA9K               0.569      0.015     37.636      0.000
+
+ Intercepts
+    KA9B               2.732      0.028     99.298      0.000
+    KA9D               2.830      0.029     96.130      0.000
+    KA9G               2.962      0.032     92.192      0.000
+    KA9K               2.664      0.026    102.124      0.000
+
+ Variances
+    F                  1.000      0.000    999.000    999.000
+
+ Residual Variances
+    KA9B               0.508      0.018     28.778      0.000
+    KA9D               0.272      0.016     17.181      0.000
+    KA9G               0.343      0.017     20.146      0.000
+    KA9K               0.677      0.017     39.369      0.000
+
+
+STD Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ F        BY
+    KA9B               0.476      0.010     45.960      0.000
+    KA9D               0.592      0.009     66.610      0.000
+    KA9G               0.554      0.010     58.200      0.000
+    KA9K               0.377      0.011     34.103      0.000
+
+ Intercepts
+    KA9B               1.855      0.011    161.435      0.000
+    KA9D               1.964      0.012    167.046      0.000
+    KA9G               2.026      0.012    174.842      0.000
+    KA9K               1.767      0.011    157.198      0.000
+
+ Variances
+    F                  1.000      0.000    999.000    999.000
+
+ Residual Variances
+    KA9B               0.234      0.008     28.089      0.000
+    KA9D               0.131      0.008     17.191      0.000
+    KA9G               0.160      0.008     20.239      0.000
+    KA9K               0.298      0.009     33.928      0.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    KA9B               0.492      0.018     27.904      0.000
+    KA9D               0.728      0.016     45.895      0.000
+    KA9G               0.657      0.017     38.582      0.000
+    KA9K               0.323      0.017     18.818      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.127E-01
+       (ratio of smallest to largest eigenvalue)
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\dinan\dropbox (personal)\dina arch\ing collab\analyses\factor_analysis\cfa.dgm
+
+     Beginning Time:  09:37:11
+        Ending Time:  09:37:12
+       Elapsed Time:  00:00:01
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2015 Muthen & Muthen

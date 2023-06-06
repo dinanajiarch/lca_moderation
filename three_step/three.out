@@ -1,0 +1,531 @@
+Mplus VERSION 8.8
+MUTHEN & MUTHEN
+06/06/2023  11:11 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  Step 3 - LSAL Moderation
+  DATA:
+  FILE = "C:/Users/dinan/Dropbox/Dina Arch/Ing collab/analyses/three_step/new.dat";
+
+  VARIABLE:
+  NAMES = KA47A KA47H KA47I KA47K KA47L FEMALE MOTHED ISCIIRT KA9B KA9D KA9G KA9K URM
+       CPROB1 CPROB2 CPROB3 CPROB4 N;
+   MISSING=.;
+   USEVAR = FEMALE MOTHED ISCIIRT URM KA9B KA9D KA9G KA9K N;
+    classes = c(4);
+    nominal = N;
+  DEFINE:
+  ISCIIRT = ISCIIRT/10;
+     Center ISCIIRT (GRANDMEAN);
+  ANALYSIS:
+  estimator = mlr;
+    type = mixture;
+    starts = 0;
+    iterations = 1000;
+  MODEL:
+  !Covariates: URM FEMALE MOTHED ISCIIRT
+  !Distal: ISSUES
+
+    %OVERALL%
+    ISSUES by KA9B KA9D KA9G KA9K;
+    ISSUES on FEMALE MOTHED URM;
+    ISSUES on ISCIIRT;
+
+           %C#1%
+  [N#1@8.959];
+  [N#2@6.319];
+  [N#3@5.092];
+        [ISSUES] (B01);        ! conditional distal mean
+        ISSUES;                ! conditional distal variance (freely estimated)
+        ISSUES on ISCIIRT(B11);! conditional slope (class 1)
+
+
+
+          %C#2%
+  [N#1@-0.61];
+  [N#2@2.237];
+  [N#3@-0.819];
+        [ISSUES@0] (B02);
+        ISSUES;
+        ISSUES on ISCIIRT(B12);
+
+
+          %C#3%
+  [N#1@4.497];
+  [N#2@4.353];
+  [N#3@6.199];
+        [ISSUES] (B03);
+        ISSUES;
+        ISSUES on ISCIIRT(B13);
+
+
+          %C#4%
+  [N#1@-8.219];
+  [N#2@-2.15];
+  [N#3@-13.705];
+        [ISSUES] (B04);
+        ISSUES;
+        ISSUES on ISCIIRT(B14);
+  MODEL CONSTRAINT:
+  NEW (slope12, slope13, slope14, slope23, slope24, slope34,
+             int13, int14, int34);
+
+        slope12=B11-B12; ! Test slope differences
+        slope13=B11-B13;
+        slope14=B11-B14;
+        slope23=B12-B13;
+        slope24=B12-B14;
+        slope34=B13-B14;
+
+        int13=B01-B03; ! Test intercept differences
+        int14=B01-B04;
+        int34=B03-B04;
+  MODEL TEST:
+
+  ! can run only a single Omnibus test per model
+      ! Omnibus test 1 (Slope)
+         B11=B12;
+         B12=B13;
+         B13=B14;
+      ! Omnibus test 2 (Intercept)
+         !B01=B03;
+         !B03=B04;
+
+
+
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  773
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+Step 3 - LSAL Moderation
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        2591
+
+Number of dependent variables                                    5
+Number of independent variables                                  4
+Number of continuous latent variables                            1
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Continuous
+   KA9B        KA9D        KA9G        KA9K
+
+  Unordered categorical (nominal)
+   N
+
+Observed independent variables
+   FEMALE      MOTHED      ISCIIRT     URM
+
+Continuous latent variables
+   ISSUES
+
+Categorical latent variables
+   C
+
+Variables with special functions
+
+  Centering (GRANDMEAN)
+   ISCIIRT
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                1000
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  C:/Users/dinan/Dropbox/Dina Arch/Ing collab/analyses/three_step/new.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            13
+     Number of y missing data patterns          13
+     Number of u missing data patterns           0
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR Y
+
+
+           Covariance Coverage
+              KA9B          KA9D          KA9G          KA9K          FEMALE
+              ________      ________      ________      ________      ________
+ KA9B           0.992
+ KA9D           0.987         0.988
+ KA9G           0.987         0.984         0.990
+ KA9K           0.988         0.985         0.986         0.991
+ FEMALE         0.992         0.988         0.990         0.991         1.000
+ MOTHED         0.992         0.988         0.990         0.991         1.000
+ ISCIIRT        0.992         0.988         0.990         0.991         1.000
+ URM            0.992         0.988         0.990         0.991         1.000
+
+
+           Covariance Coverage
+              MOTHED        ISCIIRT       URM
+              ________      ________      ________
+ MOTHED         1.000
+ ISCIIRT        1.000         1.000
+ URM            1.000         1.000         1.000
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    N
+      Category 1    0.315          815.000
+      Category 2    0.283          733.000
+      Category 3    0.072          186.000
+      Category 4    0.331          857.000
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     KA9B                  1.875       0.153       1.000   29.68%       1.000      2.000      2.000
+            2571.000       0.453      -0.811       3.000   17.19%       2.000      2.000
+     KA9D                  1.981       0.024       1.000   24.77%       1.000      2.000      2.000
+            2560.000       0.476      -0.900       3.000   22.89%       2.000      3.000
+     KA9G                  2.037      -0.045       1.000   21.22%       1.000      2.000      2.000
+            2564.000       0.460      -0.828       3.000   24.92%       2.000      3.000
+     KA9K                  1.764       0.293       1.000   36.21%       1.000      2.000      2.000
+            2568.000       0.433      -0.759       3.000   12.62%       2.000      2.000
+     FEMALE                0.518      -0.073       0.000   48.17%       0.000      0.000      1.000
+            2591.000       0.250      -1.995       1.000   51.83%       1.000      1.000
+     MOTHED                2.402       1.080       1.000   11.04%       2.000      2.000      2.000
+            2591.000       1.042       0.466       5.000    5.44%       2.000      3.000
+     ISCIIRT               0.000      -0.300      -3.409    0.04%      -0.936     -0.203      0.055
+            2591.000       1.195      -0.223       2.827    0.04%       0.317      0.963
+     URM                   0.196       1.531       0.000   80.39%       0.000      0.000      0.000
+            2591.000       0.158       0.344       1.000   19.61%       0.000      0.000
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       28
+
+Loglikelihood
+
+          H0 Value                      -11548.148
+          H0 Scaling Correction Factor      1.0015
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   23152.296
+          Bayesian (BIC)                 23316.370
+          Sample-Size Adjusted BIC       23227.406
+            (n* = (n + 2) / 24)
+
+Wald Test of Parameter Constraints
+
+          Value                             11.003
+          Degrees of Freedom                     3
+          P-Value                           0.0117
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1        824.87006          0.31836
+       2        683.82407          0.26392
+       3        193.17880          0.07456
+       4        889.12707          0.34316
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1        824.87006          0.31836
+       2        683.82407          0.26392
+       3        193.17880          0.07456
+       4        889.12707          0.34316
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1              815          0.31455
+       2              733          0.28290
+       3              186          0.07179
+       4              857          0.33076
+
+
+CLASSIFICATION QUALITY
+
+     Entropy                         0.684
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2        3        4
+
+    1   0.927    0.040    0.033    0.000
+    2   0.073    0.770    0.031    0.126
+    3   0.085    0.142    0.773    0.000
+    4   0.000    0.070    0.000    0.930
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1        2        3        4
+
+    1   0.916    0.065    0.019    0.000
+    2   0.048    0.825    0.039    0.088
+    3   0.137    0.117    0.744    0.002
+    4   0.000    0.104    0.000    0.896
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1        2        3        4
+
+    1      8.963    6.318    5.102    0.000
+    2     -0.598    2.241   -0.821    0.000
+    3      4.509    4.351    6.198    0.000
+    4     -8.182   -2.155  -13.706    0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ ISSUES   BY
+    KA9B               1.000      0.000    999.000    999.000
+    KA9D               1.247      0.033     37.844      0.000
+    KA9G               1.169      0.034     34.802      0.000
+    KA9K               0.814      0.029     28.087      0.000
+
+ ISSUES     ON
+    FEMALE            -0.160      0.019     -8.513      0.000
+    MOTHED             0.004      0.009      0.416      0.677
+    URM                0.043      0.024      1.798      0.072
+    ISCIIRT            0.149      0.015      9.829      0.000
+
+ Means
+    N#1                8.959      0.000    999.000    999.000
+    N#2                6.319      0.000    999.000    999.000
+    N#3                5.092      0.000    999.000    999.000
+
+ Intercepts
+    KA9B               1.896      0.035     54.251      0.000
+    KA9D               2.009      0.042     47.323      0.000
+    KA9G               2.061      0.040     51.416      0.000
+    KA9K               1.782      0.029     60.462      0.000
+    ISSUES             0.246      0.031      7.952      0.000
+
+ Residual Variances
+    KA9B               0.231      0.009     24.948      0.000
+    KA9D               0.131      0.008     16.109      0.000
+    KA9G               0.156      0.008     18.445      0.000
+    KA9K               0.285      0.010     29.270      0.000
+    ISSUES             0.145      0.011     12.864      0.000
+
+Latent Class 2
+
+ ISSUES   BY
+    KA9B               1.000      0.000    999.000    999.000
+    KA9D               1.247      0.033     37.844      0.000
+    KA9G               1.169      0.034     34.802      0.000
+    KA9K               0.814      0.029     28.087      0.000
+
+ ISSUES     ON
+    FEMALE            -0.160      0.019     -8.513      0.000
+    MOTHED             0.004      0.009      0.416      0.677
+    URM                0.043      0.024      1.798      0.072
+    ISCIIRT            0.152      0.023      6.544      0.000
+
+ Means
+    N#1               -0.610      0.000    999.000    999.000
+    N#2                2.237      0.000    999.000    999.000
+    N#3               -0.819      0.000    999.000    999.000
+
+ Intercepts
+    KA9B               1.896      0.035     54.251      0.000
+    KA9D               2.009      0.042     47.323      0.000
+    KA9G               2.061      0.040     51.416      0.000
+    KA9K               1.782      0.029     60.462      0.000
+    ISSUES             0.000      0.000    999.000    999.000
+
+ Residual Variances
+    KA9B               0.231      0.009     24.948      0.000
+    KA9D               0.131      0.008     16.109      0.000
+    KA9G               0.156      0.008     18.445      0.000
+    KA9K               0.285      0.010     29.270      0.000
+    ISSUES             0.141      0.011     12.633      0.000
+
+Latent Class 3
+
+ ISSUES   BY
+    KA9B               1.000      0.000    999.000    999.000
+    KA9D               1.247      0.033     37.844      0.000
+    KA9G               1.169      0.034     34.802      0.000
+    KA9K               0.814      0.029     28.087      0.000
+
+ ISSUES     ON
+    FEMALE            -0.160      0.019     -8.513      0.000
+    MOTHED             0.004      0.009      0.416      0.677
+    URM                0.043      0.024      1.798      0.072
+    ISCIIRT            0.117      0.033      3.503      0.000
+
+ Means
+    N#1                4.497      0.000    999.000    999.000
+    N#2                4.353      0.000    999.000    999.000
+    N#3                6.199      0.000    999.000    999.000
+
+ Intercepts
+    KA9B               1.896      0.035     54.251      0.000
+    KA9D               2.009      0.042     47.323      0.000
+    KA9G               2.061      0.040     51.416      0.000
+    KA9K               1.782      0.029     60.462      0.000
+    ISSUES             0.059      0.053      1.105      0.269
+
+ Residual Variances
+    KA9B               0.231      0.009     24.948      0.000
+    KA9D               0.131      0.008     16.109      0.000
+    KA9G               0.156      0.008     18.445      0.000
+    KA9K               0.285      0.010     29.270      0.000
+    ISSUES             0.175      0.021      8.523      0.000
+
+Latent Class 4
+
+ ISSUES   BY
+    KA9B               1.000      0.000    999.000    999.000
+    KA9D               1.247      0.033     37.844      0.000
+    KA9G               1.169      0.034     34.802      0.000
+    KA9K               0.814      0.029     28.087      0.000
+
+ ISSUES     ON
+    FEMALE            -0.160      0.019     -8.513      0.000
+    MOTHED             0.004      0.009      0.416      0.677
+    URM                0.043      0.024      1.798      0.072
+    ISCIIRT            0.077      0.018      4.327      0.000
+
+ Means
+    N#1               -8.219      0.000    999.000    999.000
+    N#2               -2.150      0.000    999.000    999.000
+    N#3              -13.705      0.000    999.000    999.000
+
+ Intercepts
+    KA9B               1.896      0.035     54.251      0.000
+    KA9D               2.009      0.042     47.323      0.000
+    KA9G               2.061      0.040     51.416      0.000
+    KA9K               1.782      0.029     60.462      0.000
+    ISSUES            -0.137      0.032     -4.312      0.000
+
+ Residual Variances
+    KA9B               0.231      0.009     24.948      0.000
+    KA9D               0.131      0.008     16.109      0.000
+    KA9G               0.156      0.008     18.445      0.000
+    KA9K               0.285      0.010     29.270      0.000
+    ISSUES             0.174      0.011     15.175      0.000
+
+Categorical Latent Variables
+
+ Means
+    C#1               -0.075      0.053     -1.414      0.157
+    C#2               -0.263      0.069     -3.830      0.000
+    C#3               -1.527      0.102    -14.895      0.000
+
+New/Additional Parameters
+    SLOPE12           -0.003      0.028     -0.095      0.924
+    SLOPE13            0.032      0.037      0.864      0.388
+    SLOPE14            0.072      0.022      3.207      0.001
+    SLOPE23            0.035      0.043      0.808      0.419
+    SLOPE24            0.075      0.032      2.352      0.019
+    SLOPE34            0.040      0.037      1.068      0.285
+    INT13              0.187      0.051      3.667      0.000
+    INT14              0.383      0.027     14.237      0.000
+    INT34              0.196      0.048      4.057      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.129E-04
+       (ratio of smallest to largest eigenvalue)
+
+
+     Beginning Time:  11:11:52
+        Ending Time:  11:11:52
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2022 Muthen & Muthen

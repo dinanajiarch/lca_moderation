@@ -1,0 +1,323 @@
+Mplus VERSION 8.8
+MUTHEN & MUTHEN
+05/10/2023   6:18 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  1-Class
+  DATA:
+  FILE = "C:/Users/dnajiarch/Dropbox/Dina Arch/Ing collab/analyses/mplus_enum/LSAL_data.dat"
+
+  VARIABLE:
+  NAMES = CASENUM COHORT SCHOOLID GENDER RACETH MOTHED ISCIIRT KA47A KA47H KA47I KA47K
+       KA47L KA9A KA9B KA9C KA9D KA9E KA9F KA9G KA9I KA9J KA9K KB9H FEMALE URM;
+   MISSING=.;
+   categorical = KA47A KA47H KA47I KA47K KA47L;
+  usevar = KA47A KA47H KA47I KA47K KA47L;
+  classes = c(1);
+  ANALYSIS:
+  estimator = mlr;
+      type = mixture;
+      processors = 10;
+  OUTPUT:
+  sampstat residual tech11 tech14;
+
+
+
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+  FILE = "C:/Users/dnajiarch/Dropbox/Dina Arch/Ing collab/analyses/mplus_enum/LSAL_data.dat";
+*** WARNING in OUTPUT command
+  SAMPSTAT option is not available when all outcomes are censored, ordered
+  categorical, unordered categorical (nominal), count or continuous-time
+  survival variables.  Request for SAMPSTAT is ignored.
+*** WARNING in OUTPUT command
+  TECH11 option is not available for TYPE=MIXTURE with only one class.
+  Request for TECH11 is ignored.
+*** WARNING in OUTPUT command
+  TECH14 option is not available for TYPE=MIXTURE with only one class.
+  Request for TECH14 is ignored.
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  2581
+   5 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+1-Class
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        3364
+
+Number of dependent variables                                    5
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   KA47A       KA47H       KA47I       KA47K       KA47L
+
+Categorical latent variables
+   C
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Link                                                         LOGIT
+
+Input data file(s)
+  C:/Users/dnajiarch/Dropbox/Dina Arch/Ing collab/analyses/mplus_enum/LSAL_data.
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            14
+     Number of y missing data patterns           0
+     Number of u missing data patterns          14
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR U
+
+
+           Covariance Coverage
+              KA47A         KA47H         KA47I         KA47K         KA47L
+              ________      ________      ________      ________      ________
+ KA47A          0.998
+ KA47H          0.991         0.993
+ KA47I          0.989         0.985         0.990
+ KA47K          0.991         0.987         0.986         0.993
+ KA47L          0.996         0.991         0.989         0.992         0.997
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    KA47A
+      Category 1    0.466         1564.000
+      Category 2    0.534         1793.000
+    KA47H
+      Category 1    0.550         1837.000
+      Category 2    0.450         1502.000
+    KA47I
+      Category 1    0.452         1507.000
+      Category 2    0.548         1825.000
+    KA47K
+      Category 1    0.659         2200.000
+      Category 2    0.341         1139.000
+    KA47L
+      Category 1    0.597         2003.000
+      Category 2    0.403         1352.000
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                        5
+
+Loglikelihood
+
+          H0 Value                      -11315.867
+          H0 Scaling Correction Factor      1.0000
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   22641.735
+          Bayesian (BIC)                 22672.339
+          Sample-Size Adjusted BIC       22656.452
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit for the Binary and Ordered Categorical
+(Ordinal) Outcomes
+
+          Pearson Chi-Square
+
+          Value                           1267.040
+          Degrees of Freedom                    26
+          P-Value                           0.0000
+
+          Likelihood Ratio Chi-Square
+
+          The chi-square is negative for this model part.  This is most likely
+          due to deleted cells in the H0 log-likelihood calculation.
+
+Chi-Square Test for MCAR under the Unrestricted Latent Class Indicator Model
+
+          Pearson Chi-Square
+
+          Value                            107.174
+          Degrees of Freedom                   109
+          P-Value                           0.5315
+
+          Likelihood Ratio Chi-Square
+
+          Value                             80.001
+          Degrees of Freedom                   109
+          P-Value                           0.9832
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1       3364.00000          1.00000
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1       3364.00000          1.00000
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1             3364          1.00000
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1
+
+    1   1.000
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1
+
+    1   1.000
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1
+
+    1      0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ Thresholds
+    KA47A$1           -0.137      0.035     -3.949      0.000
+    KA47H$1            0.201      0.035      5.788      0.000
+    KA47I$1           -0.191      0.035     -5.501      0.000
+    KA47K$1            0.658      0.037     18.034      0.000
+    KA47L$1            0.393      0.035     11.167      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.118E+00
+       (ratio of smallest to largest eigenvalue)
+
+
+RESULTS IN PROBABILITY SCALE
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ KA47A
+    Category 1         0.466      0.009     54.113      0.000
+    Category 2         0.534      0.009     62.037      0.000
+ KA47H
+    Category 1         0.550      0.009     63.904      0.000
+    Category 2         0.450      0.009     52.250      0.000
+ KA47I
+    Category 1         0.452      0.009     52.454      0.000
+    Category 2         0.548      0.009     63.522      0.000
+ KA47K
+    Category 1         0.659      0.008     80.308      0.000
+    Category 2         0.341      0.008     41.578      0.000
+ KA47L
+    Category 1         0.597      0.008     70.502      0.000
+    Category 2         0.403      0.008     47.588      0.000
+
+
+RESIDUAL OUTPUT
+
+
+     RESIDUAL OUTPUT IS NOT AVAILABLE FOR THIS MODEL.  ADDITIONAL OUTPUT FOR
+     CATEGORICAL, COUNT, AND NOMINAL VARIABLES MAY BE AVAILABLE USING TECH10.
+
+
+     Beginning Time:  18:18:22
+        Ending Time:  18:18:22
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2022 Muthen & Muthen

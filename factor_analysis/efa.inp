@@ -1,0 +1,16 @@
+TITLE:
+Interest in Science and Environmental Issues;
+DATA:
+FILE = "new.dat";
+ 
+VARIABLE:
+NAMES = caseid cohort FEMALE URM MOTHED ISCIIRT KSCIIRT KA47A KA47H KA47I KA47K
+     KA47L KA9B KA9C KA9D KA9G KA9K KB9H; 
+ MISSING=.;
+ usevar =  KA9B-KB9H;
+ANALYSIS:
+type = efa 1 3;
+  estimator = MLR;
+  parallel=50; 
+OUTPUT:
+sampstat

@@ -1,0 +1,24 @@
+TITLE:
+Step 1 - Class Enumeration w/ Auxiliary Specification
+DATA:
+FILE = "C:/Users/dinan/Dropbox/Dina Arch/Ing collab/analyses/three_step/new.dat";
+ 
+VARIABLE:
+NAMES = CASENUM COHORT SCHOOLID GENDER RACETH MOTHED ISCIIRT KA47A KA47H KA47I KA47K
+     KA47L KA9A KA9B KA9C KA9D KA9E KA9F KA9G KA9I KA9J KA9K KB9H FEMALE URM; 
+ MISSING=.;
+ categorical = KA47A KA47H KA47I KA47K KA47L;
+  usevar =  KA47A KA47H KA47I KA47K KA47L;
+  classes = c(4);
+  AUXILIARY = FEMALE MOTHED ISCIIRT KA9B KA9D KA9G KA9K URM;
+ANALYSIS:
+estimator = mlr; 
+    type = mixture;
+    processors = 10;
+    OPTSEED = 573096;
+OUTPUT:
+sampstat residual tech11 tech14
+SAVEDATA:
+File=savedata.dat;
+    Save=cprob;
+    format=free;
