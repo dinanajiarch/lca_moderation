@@ -1,9 +1,11 @@
 ---
-title: 'Appendix A: Annotated Output'
+title: 'Appendix B: Annotated Output'
+date: "`r Sys.Date()`"
 output:
   pdf_document: default
   word_document: default
   html_document: default
+subtitle: "Moderation with a latent class variable: A tutorial and example"
 ---
 
 ```{r setup, include=FALSE}

@@ -1,12 +1,11 @@
 ---
-title: 'Moderation with a latent class variable: A tutorial and example'
-author: "Dina Arch"
+title: 'Appendix A: R Code for the Manual ML Three-Step in M*plus*'
 date: "`r Sys.Date()`"
 output:
   pdf_document: default
   html_document: default
   word_document: default
-subtitle: "Appendix A:  R Code for the Manual ML Three-Step in M*plus*"
+subtitle: "Moderation with a latent class variable: A tutorial and example"
 ---
 
 ```{r setup, include=FALSE}

@@ -1,13 +1,13 @@
 Mplus VERSION 8.8
 MUTHEN & MUTHEN
-06/06/2023  11:11 AM
+01/09/2024  11:06 PM
 
 INPUT INSTRUCTIONS
 
   TITLE:
   Step 3 - LSAL Moderation
   DATA:
-  FILE = "C:/Users/dinan/Dropbox/Dina Arch/Ing collab/analyses/three_step/new.dat";
+  FILE = "C:/Users/dnajiarch/Box/lca_moderation/three_step/new.dat";
 
   VARIABLE:
   NAMES = KA47A KA47H KA47I KA47K KA47L FEMALE MOTHED ISCIIRT KA9B KA9D KA9G KA9K URM
@@ -170,7 +170,7 @@ Convergence criterion for H1                             0.100D-03
 Optimization algorithm                                         EMA
 
 Input data file(s)
-  C:/Users/dinan/Dropbox/Dina Arch/Ing collab/analyses/three_step/new.dat
+  C:/Users/dnajiarch/Box/lca_moderation/three_step/new.dat
 Input data format  FREE
 
 
@@ -513,8 +513,8 @@ QUALITY OF NUMERICAL RESULTS
        (ratio of smallest to largest eigenvalue)
 
 
-     Beginning Time:  11:11:52
-        Ending Time:  11:11:52
+     Beginning Time:  23:06:45
+        Ending Time:  23:06:45
        Elapsed Time:  00:00:00
 
 
